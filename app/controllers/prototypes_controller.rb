@@ -58,6 +58,10 @@ def move_to_index
   end
 end
 
+def set_prototype
+  @prototype = Prototype.find(params[:id])
+end
+
   def move_to_root
     unless current_user == @prototype.user
       redirect_to root_path
