@@ -1,0 +1,22 @@
+<div class="prototype-card">
+  <!-- プロトタイプ画像 -->
+  <div class="prototype-image">
+     <%= link_to prototype_path(prototype) do %>
+    <%= image_tag prototype.image, size: "300x200" if prototype.image.attached? %>
+    <% end %>
+  </div>
+  
+
+  <!-- タイトル -->
+  <h2>
+  <%= link_to prototype.title, prototype_path(prototype) %>
+</h2>
+  <!-- キャッチコピー -->
+  <p><%= prototype.catch_copy %></p>
+
+  <!-- 投稿者名 -->
+  <p>投稿者：<%= link_to prototype.user.name, user_path(prototype.user), class: :prototype__user %></p>
+
+  <!-- 仮のリンク -->
+  <%= link_to "詳細を見る", root_path %>
+</div>
