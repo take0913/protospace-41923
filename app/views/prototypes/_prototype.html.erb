@@ -1,22 +1,22 @@
-<div class="prototype-card">
-  <!-- プロトタイプ画像 -->
-  <div class="prototype-image">
+<div class="card">
+  <div class="card__img">
      <%= link_to prototype_path(prototype) do %>
-    <%= image_tag prototype.image, size: "300x200" if prototype.image.attached? %>
+     <% if prototype.image.attached? %>
+    <%= image_tag prototype.image %>
+    <% end %>
     <% end %>
   </div>
   
 
-  <!-- タイトル -->
-  <h2>
+  <div class="card__title">
   <%= link_to prototype.title, prototype_path(prototype) %>
-</h2>
-  <!-- キャッチコピー -->
+ </div>
+
+  <div class="card__summary">
   <p><%= prototype.catch_copy %></p>
+</div>
 
   <!-- 投稿者名 -->
-  <p>投稿者：<%= link_to prototype.user.name, user_path(prototype.user), class: :prototype__user %></p>
-
-  <!-- 仮のリンク -->
-  <%= link_to "詳細を見る", root_path %>
+  <%= link_to "by #{prototype.user.name}", user_path(prototype.user), class: "card__user" %>
 </div>
+  
